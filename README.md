@@ -1,12 +1,7 @@
-################################################################################
-#
-#Author: Shubham Shinde
-#
-#Version: V1
-# 
-# This project is used to Install and configure docker and docker-compose using the Ansible playbook.
-#
-################################################################################
+Author: Shubham Shinde
+Version: V1
+
+This project is used to Install and configure docker and docker-compose using the Ansible playbook.
 
 ****File1:**** docker-setup.yml:
 This is the main ansible-playbook file used to install and configure docker and docker-compose on a remote server.
