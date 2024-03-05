@@ -1,0 +1,7 @@
+---
+# vars file for ./roles/apache
+app_user: "devops"
+http_host: "devops"
+http_conf: "devops.conf"
+http_port: "80"
+disable_default: true

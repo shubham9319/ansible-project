@@ -1,0 +1,5 @@
+---
+# tasks file for ./roles/mysql
+- name: Install mysql
+  apt: name={{ item }} update_cache=yes cache_valid_time=3600 state=present
+  loop: [ 'mysql-server', 'python3-pymysql', 'php-mysql' ]

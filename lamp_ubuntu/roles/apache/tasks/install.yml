@@ -1,0 +1,7 @@
+---
+- name: Install prerequisites
+  apt: name={{ item }} update_cache=yes state=latest force_apt_get=yes
+  loop: [ 'aptitude' ]
+
+- name: Install Apache
+  apt: name=apache2 update_cache=yes state=latest

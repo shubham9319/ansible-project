@@ -1,0 +1,6 @@
+---
+- name: Install and configure PHP Setup
+  hosts: all
+  become: true
+  roles:
+  - php

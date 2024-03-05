@@ -1,0 +1,5 @@
+---
+- name: Install LAMP Packages
+  apt: name={{ item }} update_cache=yes state=latest
+  loop: [ 'php', 'php-mysql', 'libapache2-mod-php' ]
+

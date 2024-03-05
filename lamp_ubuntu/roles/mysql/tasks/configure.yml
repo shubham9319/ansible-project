@@ -1,0 +1,21 @@
+---
+- name: start up the mysql service
+  shell: "service mysql start"
+
+- name: ensure mysql is enabled to run on startup
+  service: name=mysql state=started enabled=true
+
+- name: Sets the root password
+  mysql_user:
+    login_unix_socket: /var/run/mysqld/mysqld.sock  # default path
+    name: root
+    password: "{{ mysql_root_password }}"
+    login_user: root
+    login_password: "{{ mysql_root_password }}"
+
+- name: Removes the MySQL test database
+  mysql_db:
+    name: test
+    state: absent
+    login_user: root
+    login_password: "{{ mysql_root_password }}"
