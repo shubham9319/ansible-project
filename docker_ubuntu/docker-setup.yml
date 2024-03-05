@@ -3,7 +3,7 @@
   hosts: all
   become: true
   vars_files:
-    - docker_vars.yml
+    - vars/docker_vars.yml
 
   tasks:
     - name: Install aptitude
@@ -39,7 +39,7 @@
         name: "{{item}}"
         state: latest
         update_cache: yes
-      loop:
+      with_items:
         - docker-ce
         - docker-ce-cli
         - containerd.io

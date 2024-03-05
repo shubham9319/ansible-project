@@ -1,0 +1,6 @@
+---
+- name: Change file ownership, group and permissions
+  ansible.builtin.file:
+    path: /usr/local/bin/docker-compose
+    owner: "{{ username }}"
+    group: "{{ username }}"
