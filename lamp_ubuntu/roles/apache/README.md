@@ -1,6 +1,6 @@
 # Apache on Ubuntu
 
-This playbook will install the Apache 2 web server on an Ubuntu machine. Varaible changes will be done in `vars/main.yml` variable file.
+This playbook will install the Apache 2 web server on an Ubuntu machine. Variable changes will be done in `vars/main.yml` variable file.
 
 ## Settings
 
@@ -8,7 +8,7 @@ This playbook will install the Apache 2 web server on an Ubuntu machine. Varaibl
 - `http_host`: your domain name.
 - `http_conf`: the name of the configuration file that will be created within Apache.
 - `http_port`: HTTP port, default is 80.
-- `disable_default`: whether or not to disable the default Apache website. When set to true, your new virtualhost should be used as default website. Default is true.
+- `disable_default`: whether or not to disable the default Apache website. When set to true, your new virtualhost should be used as the default website. The default is true.
 
 
 ## Running this Playbook
