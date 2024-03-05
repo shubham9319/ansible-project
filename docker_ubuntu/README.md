@@ -1,12 +1,36 @@
-Author: Shubham Shinde
+# Docker and docker-compose installation setup on Ubuntu
 
-This is an ansible project used to install/configure docker and docker-compose on remote servers.
+This playbook will install a docker and docker-compose on an Ubuntu machine. Variables are stored in the `vars/docker_vars.yml` variable file.
 
-File1: docker-setup.yml:
-This main ansible playbook file is used to install and configure docker and docker-compose on the remote server.
+## Settings
+For. ex: vars/docker_vars.yml
 
-File2: docker_vars.yml:
-This is an environment variable file to pass variable values. For ex: username=ubuntu. Change Ubuntu to your respective username.
+- `username`: Add user to docker group.
 
-File3: inventory.yml:
-This is an inventory file to store remote hosts' details. For ex: Remote host IP Address like 10.10.10.10
+## Running this Playbook
+
+Quick Steps:
+
+### 1. Obtain the playbook
+```shell
+git clone https://github.com/shubham9319/ansible-project.git
+cd ansible-project/docker_ubuntu/
+
+```
+
+### 2.1. Customize Options
+
+```shell
+nano vars/docker_vars.yml
+```
+
+```yml
+---
+username: "ubuntu"
+```
+
+### 3. Run the Playbook
+
+```command
+ansible-playbook -l [target] -i [inventory file] -u [remote user] docker-setup.yml
+```
