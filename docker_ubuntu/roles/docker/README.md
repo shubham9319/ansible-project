@@ -1,38 +1,36 @@
-Role Name
-=========
+# Docker and docker-compose installation setup on Ubuntu
 
-A brief description of the role goes here.
+This role will install a docker on an Ubuntu machine. Variables are stored in the `vars/main.yml` variable file.
 
-Requirements
-------------
+## Settings
+For. ex: roles/docker/vars/main.yml
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+- `username`: Add user to docker group.
 
-Role Variables
---------------
+## Running this Playbook
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+Quick Steps:
 
-Dependencies
-------------
+### 1. Obtain the playbook
+```shell
+git clone https://github.com/shubham9319/ansible-project.git
+cd ansible-project/docker_ubuntu/
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+```
 
-Example Playbook
-----------------
+### 2.1. Customize Options
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+```shell
+nano roles/docker/vars/main.yml
+```
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+```yml
+---
+username: "ubuntu"
+```
 
-License
--------
+### 3. Run the Playbook
 
-BSD
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+```command
+ansible-playbook -l [target] -i [inventory file] -u [remote user] docker.yml
+```
