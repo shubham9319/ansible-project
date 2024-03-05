@@ -18,18 +18,16 @@ Quick Steps:
 ### 1. Obtain the playbook
 ```shell
 git clone https://github.com/shubham9319/ansible-project.git
-cd ansible-project/lamp_ubuntu/apache_role.yml
-
+cd ansible-project/lamp_ubuntu/
 ```
 
 ### 2. Customize Options
 
 ```shell
-nano ansible-project/lamp_ubuntu/roles/apache/vars/main.yml
+nano roles/apache/vars/main.yml
 ```
 
 ```yml
-#ansible-project/lamp_ubuntu/roles/apache/vars/main.yml
 ---
 app_user: "sammy"
 http_host: "your_domain"
