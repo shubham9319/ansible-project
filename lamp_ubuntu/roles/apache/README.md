@@ -1,6 +1,6 @@
 # Apache on Ubuntu
 
-This playbook will install the Apache 2 web server on an Ubuntu machine. A virtualhost will be created with the options specified in the `vars/main.yml` variable file.
+This playbook will install the Apache 2 web server on an Ubuntu machine. Varaible changes will be done in `vars/main.yml` variable file.
 
 ## Settings
 
