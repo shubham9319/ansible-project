@@ -1,10 +1,10 @@
 # Apache on Ubuntu
 
-This playbook will install the PHP on an Ubuntu machine. Varaible changes will be done in `vars/main.yml` variable file.
+This playbook will install the PHP on an Ubuntu machine. Variable changes will be done in `vars/main.yml` variable file.
 
 ## Settings
 
-For.ex: roles/php/vars/main.yml
+For. ex: roles/php/vars/main.yml
 
 - `http_host`: your domain name.
 
