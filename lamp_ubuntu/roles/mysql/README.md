@@ -1,38 +1,36 @@
-Role Name
-=========
+# Apache on Ubuntu
 
-A brief description of the role goes here.
+This playbook will install the MySQL database on a Ubuntu machine. Variable changes will be done in the `vars/main.yml` variable file.
 
-Requirements
-------------
+## Settings
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+For. ex: roles/mysql/vars/main.yml
 
-Role Variables
---------------
+- `mysql_root_password`: the password for the MySQL root account.
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+## Running this Playbook
 
-Dependencies
-------------
+Quick Steps:
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+### 1. Obtain the playbook
+```shell
+git clone https://github.com/shubham9319/ansible-project.git
+cd ansible-project/lamp_ubuntu/
+```
 
-Example Playbook
-----------------
+### 2. Customize Options
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+```shell
+nano roles/mysql/vars/main.yml
+```
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+```yml
+---
+mysql_root_password: "Password"
+```
 
-License
--------
+### 3. Run the Playbook
 
-BSD
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+```command
+ansible-playbook -l [target] -i [inventory file] -u [remote user] mysql_role.yml
+```
