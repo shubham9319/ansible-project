@@ -4,3 +4,4 @@ A collection of minimalist Ansible projects for automating server setups, based 
 
 - [DOCKER on Ubuntu](https://github.com/shubham9319/ansible-project/tree/main/docker_ubuntu)
 - [LAMP on Ubuntu](https://github.com/shubham9319/ansible-project/tree/main/lamp_ubuntu)
+- [FLASK-WEBAPP on Ubuntu](https://github.com/shubham9319/ansible-project/tree/main/flask-webapp)
