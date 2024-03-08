@@ -1,9 +1,9 @@
 ---
-- name: start up the mysql service
-  shell: "service mysql start"
-
-- name: ensure mysql is enabled to run on startup
-  service: name=mysql state=started enabled=true
+- name: Check mysql is running
+  service:
+    name: mysql
+    state: started
+    enabled: yes
 
 - name: Sets the root password
   mysql_user:
