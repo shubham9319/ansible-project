@@ -1,0 +1,85 @@
+---
+- name: Deploy web application
+  hosts: server2
+  become: true
+  vars_files:
+    - vars/variables.yml
+
+  tasks:  
+  - name: Install all required dependencies
+    apt:
+      name: "{{ item }}"
+      state: present
+      update_cache: yes
+    loop:
+      - python3
+      - python3-setuptools
+      - python3-dev
+      - build-essential
+      - python3-pip
+      - python3-flask
+
+  - name: Install and Configure Database
+    apt:
+      name: "{{ item }}"
+      state: present
+      update_cache: yes
+    loop:
+      - mysql-server
+      - mysql-client
+      - mysql-server
+      - mysql-client
+      - python3-pymysql
+      - php-mysql
+      - python3-mysqldb
+
+  - name: Check mysql is running
+    service:
+      name: mysql
+      state: started
+      enabled: yes
+
+  - name: Sets the root password
+    mysql_user:
+      login_unix_socket: /var/run/mysqld/mysqld.sock  # default path
+      name: root
+      password: "{{ mysql_root_password }}"
+      login_user: root
+      login_password: "{{ mysql_root_password }}"
+
+  - name: Removes the MySQL test database
+    mysql_db:
+      name: test
+      state: absent
+      login_user: root
+      login_password: "{{ mysql_root_password }}"
+
+  - name: Create a new database with name 'employee_db'
+    mysql_db:
+      name: employee_db
+      state: present
+      login_user: root
+      login_password: "{{ mysql_root_password }}"
+
+  - name: Create database user
+    mysql_user:
+      name: db_user
+      password: Passw0rd
+      priv: '*.*:ALL'
+      state: present
+      login_user: root
+      login_password: "{{ mysql_root_password }}"
+
+  - name: Install Python Flask dependency
+    pip:
+      name: "{{ item }}"
+      state: present
+    with_items:
+      - flask
+      - flask-mysql
+
+  - name: Copy source code
+    copy: src=app.py dest=/opt/app.py
+
+  - name: Start Web Server
+    shell: FLASK_APP=/opt/app.py nohup flask run --host=0.0.0.0 &

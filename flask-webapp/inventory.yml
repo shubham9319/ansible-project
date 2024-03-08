@@ -1,0 +1,5 @@
+[servers]
+server1 ansible_host=IP_ADDRESS ansible_sudo_pass="PASSWORD"
+
+[servers:vars]
+ansible_python_interpreter=/usr/bin/python3

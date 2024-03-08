@@ -1,0 +1,35 @@
+---
+- name: Deploy web application
+  hosts: server2
+  become: true
+  roles:
+    - mysql
+
+  tasks:  
+  - name: Install all required dependencies
+    apt:
+      name: "{{ item }}"
+      state: present
+      update_cache: yes
+    loop:
+      - python3
+      - python3-setuptools
+      - python3-dev
+      - build-essential
+      - python3-pip
+      - python3-flask
+      - python3-mysqldb
+
+  - name: Install Python Flask dependency
+    pip:
+      name: "{{ item }}"
+      state: present
+    with_items:
+      - flask
+      - flask-mysql
+
+  - name: Copy source code
+    copy: src=app.py dest=/opt/app.py
+
+  - name: Start Web Server
+    shell: FLASK_APP=/opt/app.py nohup flask run --host=0.0.0.0 &

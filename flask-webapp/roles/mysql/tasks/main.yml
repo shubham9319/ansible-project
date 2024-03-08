@@ -1,0 +1,4 @@
+---
+# tasks file for ./roles/mysql
+- import_tasks: install.yml
+- import_tasks: configure.yml
