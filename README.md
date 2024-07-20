@@ -1,4 +1,4 @@
-# Ansible Projects
+# Ansible Mini-Projects
 
 A collection of minimalist Ansible projects for automating server setups, based on DigitalOcean's Community guides.
 
